@@ -3,6 +3,10 @@ var colorMode = 1; // 1 for light 0 for dark
 function func(event) {
     if(event.target.checked) {
         // light
+
+        // Covid 19 heading
+        document.getElementById("covid19_head").style.color = "black";
+
         document.body.style.backgroundColor = "white";
         // navbar
         $('.navbar').removeClass('navbar-dark');
@@ -11,7 +15,13 @@ function func(event) {
         $('.navbar').addClass('bg-light');
 
         // india chartdiv
-        document.getElementById("chartdiv").style.backgroundColor = "white";
+        for(var cnt=0; cnt<4; cnt++) {
+            document.getElementsByClassName("amchartclass")[cnt].style.backgroundColor = "white";
+        }
+
+        // india heatmap chart
+        document.getElementById("india-heatmap").style.color = "black";
+        document.getElementById("india-heatmap").style.backgroundColor = "white";
 
         // digital screening section
         $('.screen-section').removeClass('screen-dark');
@@ -20,11 +30,15 @@ function func(event) {
         // india total cases section
         $('.info').removeClass('cases-dark');
         $('.info').addClass('cases-light');
+
     }
     else {
         // dark
 
-        document.body.style.backgroundColor = "rgb(100,100,100)";
+        // Covid 19 heading
+        document.getElementById("covid19_head").style.color = "white";
+
+        document.body.style.backgroundColor = "black";
         // navbar
         $('.navbar').removeClass('navbar-light');
         $('.navbar').addClass('navbar-dark');
@@ -32,7 +46,13 @@ function func(event) {
         $('.navbar').addClass('bg-dark');
 
         // india chartdiv
-        document.getElementById("chartdiv").style.backgroundColor = "rgb(100,100,100)";
+        for(var cnt=0; cnt<4; cnt++) {
+            document.getElementsByClassName("amchartclass")[cnt].style.backgroundColor = "rgb(70,70,70)";
+        }
+
+        // india heatmap chart
+        document.getElementById("india-heatmap").style.color = "white";
+        document.getElementById("india-heatmap").style.backgroundColor = "rgb(70,70,70)";
 
         // digital screening section
         $('.screen-section').removeClass('screen-light');
@@ -41,5 +61,7 @@ function func(event) {
         // india total cases section
         $('.info').removeClass('cases-light');
         $('.info').addClass('cases-dark');
+
+        
     }
 }

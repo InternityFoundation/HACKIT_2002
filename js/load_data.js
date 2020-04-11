@@ -50,24 +50,24 @@ function load_data() {
 function confirm_chart() {
     document.getElementById("chartdiv1").style.display = "block";
     document.getElementById("chartdiv2").style.display = "none";
-    document.getElementById("chartdiv2").style.display = "none";
-    document.getElementById("chartdiv2").style.display = "none";
+    document.getElementById("chartdiv3").style.display = "none";
+    document.getElementById("chartdiv4").style.display = "none";
 }
 function active_chart() {
     document.getElementById("chartdiv1").style.display = "none";
     document.getElementById("chartdiv2").style.display = "block";
-    document.getElementById("chartdiv2").style.display = "none";
-    document.getElementById("chartdiv2").style.display = "none";
+    document.getElementById("chartdiv3").style.display = "none";
+    document.getElementById("chartdiv4").style.display = "none";
 }
 function recover_chart() {
     document.getElementById("chartdiv1").style.display = "none";
     document.getElementById("chartdiv2").style.display = "none";
-    document.getElementById("chartdiv2").style.display = "block";
-    document.getElementById("chartdiv2").style.display = "none";
+    document.getElementById("chartdiv3").style.display = "block";
+    document.getElementById("chartdiv4").style.display = "none";
 }
 function decease_chart() {
     document.getElementById("chartdiv1").style.display = "none";
     document.getElementById("chartdiv2").style.display = "none";
-    document.getElementById("chartdiv2").style.display = "none";
-    document.getElementById("chartdiv2").style.display = "block";
+    document.getElementById("chartdiv3").style.display = "none";
+    document.getElementById("chartdiv4").style.display = "block";
 }

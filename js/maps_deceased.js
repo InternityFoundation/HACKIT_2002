@@ -1,4 +1,5 @@
-// Create map instance
+function loadchart4() {
+  // Create map instance
 var chart = am4core.create("chartdiv4", am4maps.MapChart);
 
 // Set map definition
@@ -82,14 +83,14 @@ polygonTemplate.tooltipText = "{name}";
 console.log(Object(indiaSeries.data));
 
 
-function loadchart4() {
+
     polygonTemplate.tooltipText = "{name}: {value.value.formatNumber('#.0')}";
     
     indiaSeries.heatRules.push({
       property: "fill",
       target: indiaSeries.mapPolygons.template,
       min: am4core.color("rgb(250,254,201)"),
-      max: am4core.color("rgb(236,250,69)")
+      max: am4core.color("rgb(184,199,5)")
     });
     
     indiaSeries.useGeodata = true;
@@ -136,7 +137,7 @@ function loadchart4() {
       for(var i=0;i<state_active.length;i++) {
         var fg = {
           "id":state_code[i],
-          "value":state_active[i]
+          "value":state_decease[i]
         }
         indiaSeries.data.push(fg);
       }
