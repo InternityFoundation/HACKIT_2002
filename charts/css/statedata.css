@@ -1,13 +1,34 @@
-table ,tr , th, td {
-    border: 2px solid black;
+html , body {
+    width: 100%;
+    overflow-x: hidden;
 }
 
-#statetable {
-    float: left;
-    margin-left: 20px;
+#statedata {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 5px;
 }
+
+
+/* Table Headings begin */
+#statetable > thead > tr > th {
+    background-color: rgb(227, 218, 238);
+    color: rgb(110, 32, 212);
+    border: 3px solid white;
+    padding: 2px 4px;
+}
+
+#districttable > thead > tr > th {
+    background-color: rgb(215, 216, 235);
+    color: rgb(35, 32, 212);
+    border: 3px solid white;
+    padding: 2px 4px;
+}
+/* Table Headings End */
+
 
 #districttable {
-    float: right;
-    margin-right: 20px;
+    margin-left: 20px;
 }

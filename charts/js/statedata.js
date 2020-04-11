@@ -25,11 +25,6 @@ function load_data() {
     xmlHttp1.send( null );
     var bodytext1 = xmlHttp1.responseText;
     state_district_wise =JSON.parse(bodytext1);
-    
-    /* this gives the names of states when iterated
-    console.log(Object.keys(state_district_wise)[0]);*/
-    //console.log(Object.keys(state_district_wise)[0]);
-    //console.log(state_district_wise["Kerala"].districtData);
 
     // register statecode, statename and stats from each state
     for(var i=1; i<data_json.statewise.length; i++) {
@@ -57,29 +52,38 @@ function load_data() {
         cell5.innerHTML = state_decease[i];
     }
     
+    // setting clicking for each tr of state table and populate districttable
     $(state_name).each(function(i) {
         $('#state'+i).click(function(){
-            var state_this = state_district_wise[state_name[i]].districtData;
-            var dist = Object.keys(state_this);
-            console.log(state_this);
-            console.log(dist[1] +" "+state_this[dist[1]].confirmed);
+            try {
+                var state_this = state_district_wise[state_name[i]].districtData;
+                var dist = Object.keys(state_this);
+                console.log(state_this);
 
-            var districttable = document.getElementById("districttable");
-            
-            $(districttable).find("tr:gt(0)").remove();
-             
-            /*document.getElementById("districttable").remove();
-            var districttable = document.createElement("table");
-            districttable.id = "districttable";*/
+                var districttable = document.getElementById("districttable");
+                
+                $(districttable).find("tr:gt(0)").remove();
+                
+                // populate table
+                $(dist).each(function(i) {
+                    var row = districttable.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    cell1.innerHTML = dist[i];
+                    cell2.innerHTML = state_this[dist[i]].confirmed;
+                });
+            }
+            catch(err){
+                var districttable = document.getElementById("districttable");
+                $(districttable).find("tr:gt(0)").remove();
 
-            // populate table
-            $(dist).each(function(i) {
                 var row = districttable.insertRow(-1);
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
-                cell1.innerHTML = dist[i];
-                cell2.innerHTML = state_this[dist[i]].confirmed;
-            });
+                cell1.innerHTML = "Unknown";
+                cell2.innerHTML = 0;
+            }
+            
         });
     });
 
