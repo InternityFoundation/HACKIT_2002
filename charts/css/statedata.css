@@ -1,8 +1,13 @@
-
-table {
-    margin: auto;
-}
-
 table ,tr , th, td {
     border: 2px solid black;
+}
+
+#statetable {
+    float: left;
+    margin-left: 20px;
+}
+
+#districttable {
+    float: right;
+    margin-right: 20px;
 }
