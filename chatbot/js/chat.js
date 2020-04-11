@@ -18,16 +18,7 @@ var predictionText = [["below 25","25-40","40-60","above 60"],
                 ["no travel history","went to some safe private meeting","went to some public place in last 14 days","confirmed contact with Covid in last 14 days"],
                 ["Diabetes","high blood pressure","heart disease","kidney disease","lung disease","stroke","reduced immunity","None of these"]];
 
-var predictionTextOdia = [["25 ତଳେ |","25 ରୁ 40","40 ରୁ 60","60 ରୁ ଅଧିକ"],
-                ["ପୁରୁଷ","ମହିଳା","ଅନ୍ୟମାନେ"],
-                ["96° ରୁ 98.6° ଫରେନହିଟ","98.6° ରୁ 102° ଫରେନହିଟ","102° ଫରେନହିଟରୁ ଅଧିକ"],
-                ["ଶୁଖିଲା କାଶ","ଦୁର୍ଗନ୍ଧର ଗଳାର","ଗଳ। ଖରାପ","ଦୁର୍ବଳତା","ଭୋକରେ ପରିବର୍ତ୍ତନ ହୁଏ","ଏଗୁଡ଼ିକ ମଧ୍ୟରୁ କୌଣସି ନାହିଁ"],
-                ["ମଧ୍ୟମରୁ ଘୋର କାଶ","ନିଶ୍ୱାସ ପ୍ରଶ୍ୱାସ","ଶ୍ୱାସ ନେବାରେ ଅସୁବିଧା","ନିଦ୍ରା","ଛାତିରେ ଯନ୍ତ୍ରଣା","ଭୟଙ୍କର ଦୁର୍ବଳତା","ଏଗୁଡ଼ିକ ମଧ୍ୟରୁ କୌଣସି ନାହିଁ"],
-                ["କୌଣସି ଭ୍ରମଣ ଇତିହାସ ନାହିଁ","କିଛି ସୁରକ୍ଷିତ ବ୍ୟକ୍ତିଗତ ସଭାକୁ ଗଲେ","ଗତ 14 ଦିନରେ କିଛି ସର୍ବସାଧାରଣ ସ୍ଥାନକୁ ଯାଇଥିଲେ","ଗତ 14 ଦିନରେ କୋଭିଡ ସହିତ ଯୋଗାଯୋଗ ନିଶ୍ଚିତ ହୋଇଛି"],
-                ["ମଧୁମେହ","ଉଚ୍ଚ ରକ୍ତଚାପ","ହୃଦ୍ ରୋଗ","କିଡନୀ ରୋଗ","ଫୁସଫୁସ ରୋଗ","ଷ୍ଟ୍ରୋକ୍ ରୋଗ","ପ୍ରତିରୋଧକ ଶକ୍ତି ହ୍ରାସ କଲା","ଏଗୁଡ଼ିକ ମଧ୍ୟରୁ କୌଣସି ନାହିଁ"]];
-
-
-var question = ["Hi, I am your personal healthcare assistant from Amour Lab. I will walk you through self assessment for Covid 19 symptoms. I was developed under the guidelines of WHO and the Indian Government. Please note that I am not a medical expert",
+var question = ["Hi, I am your personal healthcare assistant. I will walk you through self assessment for Covid 19 symptoms. I was developed under the guidelines of WHO and the Indian Government. Please note that I am not a medical expert",
                 "Please mention your age",
                 "Please mention your gender",
                 "What is your body temperature?",
@@ -35,15 +26,6 @@ var question = ["Hi, I am your personal healthcare assistant from Amour Lab. I w
                 "Are you having these symptoms",
                 "Please tell me about your travel history",
                 "Do you have a history of these conditions"];
-
-var questionOdia = ["ନମସ୍କାର, ମୁଁ ଆମୋର ଲ୍ୟାବରୁ ତୁମର ବ୍ୟକ୍ତିଗତ ସ୍ୱାସ୍ଥ୍ୟସେବା ସହାୟକ ଅଟେ | କୋଭିଡ୍ 19 ଲକ୍ଷଣ ପାଇଁ ମୁଁ ତୁମକୁ ଆତ୍ମ ମୂଲ୍ୟାଙ୍କନ ମାଧ୍ୟମରେ ଚାଲିବି | WHO ଏବଂ ଭାରତ ସରକାରଙ୍କ ନିର୍ଦ୍ଦେଶନାମା ଅନୁଯାୟୀ ମୋତେ ବିକଶିତ କରାଯାଇଛି | ଦୟାକରି ଧ୍ୟାନ ଦିଅନ୍ତୁ ଯେ ମୁଁ ଜଣେ ଡାକ୍ତରୀ ବିଶେଷଜ୍ଞ ନୁହେଁ |",
-                "ଦୟାକରି ଆପଣଙ୍କର ବୟସ ବିଷୟରେ ଉଲ୍ଲେଖ କରନ୍ତୁ",
-                "ଦୟାକରି ଆପଣଙ୍କର ଲିଙ୍ଗ ବିଷୟରେ ଉଲ୍ଲେଖ କରନ୍ତୁ",
-                "ଆପଣଙ୍କ ଶରୀରର ତାପମାତ୍ରା କ’ଣ?",
-                "ଆପଣ ଏହି ସମସ୍ୟାର କୌଣସି ଅନୁଭବ କରୁଛନ୍ତି କି?",
-                "ଆପଣ ଏହି ସମସ୍ୟାର କୌଣସି ଅନୁଭବ କରୁଛନ୍ତି କି?",
-                "ଦୟାକରି ତୁମର ଯାତ୍ରା ଇତିହାସ ବିଷୟରେ ମୋତେ କୁହ",
-                "ଏହି ସର୍ତ୍ତଗୁଡିକର ଆପଣଙ୍କର ଏକ ଇତିହାସ ଅଛି କି?"];
 
 var server = document.getElementsByClassName("server");
 var client = document.getElementsByClassName("client");
@@ -99,14 +81,6 @@ function bodyload() {
         for(var i=0;i<question_p.length;i++) {
             question_p[i].innerHTML += questionOdia[i]+"<br />";
         }
-        audio1 = new Audio('./odia_audio/1.aac');
-        audio2 = new Audio('./odia_audio/2.aac');
-        audio3 = new Audio('./odia_audio/3.aac');
-        audio4 = new Audio('./odia_audio/4.aac');
-        audio5 = new Audio('./odia_audio/5.aac');
-        audio6 = new Audio('./odia_audio/6.aac');
-        audio7 = new Audio('./odia_audio/7.aac');
-        audio8 = new Audio('./odia_audio/8.aac');
     }
     var predict1 = document.getElementsByClassName("predict1");
     var predict2 = document.getElementsByClassName("predict2");
