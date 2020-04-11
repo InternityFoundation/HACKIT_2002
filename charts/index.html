@@ -24,14 +24,16 @@
 
     <section id="statedata">
         <table id="statetable">
-            <tbody id="statebody">
+            <thead>
                 <tr>
-                    <th onclick="sortTable(0)">State</th>
-                    <th onclick="sortTableNum(1)">Confirmed</th>
-                    <th onclick="sortTableNum(2)">Active</th>
-                    <th onclick="sortTableNum(3)">Recovered</th>
-                    <th onclick="sortTableNum(4)">Deceased</th>
+                    <th onclick="sortTable(0,'statetable')">State</th>
+                    <th onclick="sortTableNum(1,'statetable')">Confirmed</th>
+                    <th onclick="sortTableNum(2,'statetable')">Active</th>
+                    <th onclick="sortTableNum(3,'statetable')">Recovered</th>
+                    <th onclick="sortTableNum(4,'statetable')">Deceased</th>
                 </tr>
+            </thead>
+            <tbody id="statebody">
                 <!--<tr>
                     <td>Maharashtra</td>
                     <td>44</td>
@@ -43,14 +45,13 @@
         </table>
 
         <table id="districttable">
-            <tbody id="districtbody">
+            <thead>
                 <tr>
-                    <th onclick="sortTable(0)">State</th>
-                    <th onclick="sortTableNum(1)">Confirmed</th>
-                    <th onclick="sortTableNum(2)">Active</th>
-                    <th onclick="sortTableNum(3)">Recovered</th>
-                    <th onclick="sortTableNum(4)">Deceased</th>
+                    <th onclick="sortTable(0,'districttable')">District</th>
+                    <th onclick="sortTableNum(1,'districttable')">Confirmed</th>
                 </tr>
+            </thead>
+            <tbody id="districtbody">
                 <!--<tr>
                     <td>Maharashtra</td>
                     <td>44</td>

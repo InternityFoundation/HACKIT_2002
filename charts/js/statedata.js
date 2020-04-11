@@ -7,6 +7,9 @@ var state_decease = [];
 var district_name = [[],[]];
 var district_confirm = [[],[]];
 
+var data_json;
+var state_district_wise;
+
 function load_data() {
     // load json file for odisha state
     var xmlHttp = new XMLHttpRequest();
@@ -21,8 +24,8 @@ function load_data() {
     xmlHttp1.open( "GET", "https://api.covid19india.org/state_district_wise.json", false );
     xmlHttp1.send( null );
     var bodytext1 = xmlHttp1.responseText;
-    var state_district_wise =JSON.parse(bodytext1);
-    var districttable = document.getElementById("districttable");
+    state_district_wise =JSON.parse(bodytext1);
+    
     /* this gives the names of states when iterated
     console.log(Object.keys(state_district_wise)[0]);*/
     //console.log(Object.keys(state_district_wise)[0]);
@@ -36,27 +39,11 @@ function load_data() {
         state_recover[i] = parseInt(data_json.statewise[i].recovered);
         state_decease[i] = parseInt(data_json.statewise[i].deaths);
 
-        var current_state = data_json.statewise[i].state;
-
-        // iterate through states in state_district_wise
-        for(var j=0; j<Object.keys(state_district_wise).length;j++) {  
-            district_name[i] = [];
-            district_confirm[i] = [];
-            if(current_state == Object.keys(state_district_wise)[j]) {
-                // state match, grab values
-                var distdata = console.log(state_district_wise[current_state].districtData);
-                try {dist = Object.keys(distdata);}
-                catch(err) {continue;}
-                for(var j=0;j<dist.length;j++) {
-                    district_name[i][j] = dist[j];
-                    district_confirm[i][j] = distdata[dist[j]].confirmed;
-                }
-            }
-        }
-
         var row = statetable.insertRow(-1);
+        row.id = "state"+i; // set row id for each row
         // Insert new cells (<td> elements) at the last position of the "new" <tr> element:
         var cell1 = row.insertCell(0);
+        //cell1.id = "state"+i;
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
@@ -69,12 +56,39 @@ function load_data() {
         cell4.innerHTML = state_recover[i];
         cell5.innerHTML = state_decease[i];
     }
+    
+    $(state_name).each(function(i) {
+        $('#state'+i).click(function(){
+            var state_this = state_district_wise[state_name[i]].districtData;
+            var dist = Object.keys(state_this);
+            console.log(state_this);
+            console.log(dist[1] +" "+state_this[dist[1]].confirmed);
+
+            var districttable = document.getElementById("districttable");
+            
+            $(districttable).find("tr:gt(0)").remove();
+             
+            /*document.getElementById("districttable").remove();
+            var districttable = document.createElement("table");
+            districttable.id = "districttable";*/
+
+            // populate table
+            $(dist).each(function(i) {
+                var row = districttable.insertRow(-1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                cell1.innerHTML = dist[i];
+                cell2.innerHTML = state_this[dist[i]].confirmed;
+            });
+        });
+    });
+
 }
 
 
-function sortTable(n) {
+function sortTable(n,table_id) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("statetable");
+    table = document.getElementById(table_id);
     switching = true;
     //Set the sorting direction to ascending:
     dir = "asc"; 
@@ -113,9 +127,9 @@ function sortTable(n) {
 }
 
 
-function sortTableNum(n) {
+function sortTableNum(n,table_id) {
     var table, rows, switching, i, x, y, shouldSwitch, dir="asc", switchcount=0;
-    table = document.getElementById("statetable");
+    table = document.getElementById(table_id);
     switching = true;
     while (switching) {
         switching = false;
