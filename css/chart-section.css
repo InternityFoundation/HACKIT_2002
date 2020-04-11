@@ -1,6 +1,18 @@
 #chart-section {
     background: transparent;
-    padding: 20px;
+    padding: 20px 200px;
+}
+
+@media only screen and (max-width: 1000px) {
+    #chart-section {
+        padding: 20px 100px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    #chart-section {
+        padding: 20px;
+    }
 }
 
 #chart-section > .buttons {

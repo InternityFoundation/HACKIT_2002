@@ -1,0 +1,53 @@
+#precautions {
+    width: 100%;
+    text-align: center;
+}
+
+#panicp {
+    padding: 10px;
+    background: rgb(227,226,243);
+    font-size: 30px;
+    color: rgb(60,54,173);
+}
+
+@media only screen and (max-width: 450px) {
+    #panicp {
+        font-size: 18px;
+    }
+}
+
+.points {
+    text-align: left;
+    padding: 2px 50px;
+}
+
+.accordion {
+    font-size: 23px;
+    padding: 0px 5px;
+    background-color:  rgb(183, 214, 255);
+    z-index: 1000;
+}
+
+.panel {
+    background-color: rgb(203,234,255);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.panel > p {
+    font-size: 20px;
+    padding: 5px 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .points {
+        padding: 5px 10px;
+    }
+    .accordion {
+        font-size: 20px;
+    }
+    .panel > p {
+        font-size: 18px;
+        padding: 5px 2px;
+    }
+}

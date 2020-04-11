@@ -31,6 +31,17 @@ function func(event) {
         $('.info').removeClass('cases-dark');
         $('.info').addClass('cases-light');
 
+        // be prepared but dont panic text
+        document.getElementById("panicp").style.color = "rgb(60,54,173)";
+        document.getElementById("panicp").style.backgroundColor = "rgb(227,226,243)";
+
+        // accordian
+        document.getElementsByClassName("accordion")[0].style.backgroundColor = "rgb(183, 214, 255)";
+        document.getElementsByClassName("accordion")[0].style.color = "black";
+
+        // panel
+        document.getElementsByClassName("panel")[0].style.backgroundColor = "rgb(203,234,255)";
+        document.getElementsByClassName("panel")[0].style.color = "black";
     }
     else {
         // dark
@@ -47,12 +58,12 @@ function func(event) {
 
         // india chartdiv
         for(var cnt=0; cnt<4; cnt++) {
-            document.getElementsByClassName("amchartclass")[cnt].style.backgroundColor = "rgb(70,70,70)";
+            document.getElementsByClassName("amchartclass")[cnt].style.backgroundColor = "rgb(0,0,0)";
         }
 
         // india heatmap chart
         document.getElementById("india-heatmap").style.color = "white";
-        document.getElementById("india-heatmap").style.backgroundColor = "rgb(70,70,70)";
+        document.getElementById("india-heatmap").style.backgroundColor = "rgb(0,0,0)";
 
         // digital screening section
         $('.screen-section').removeClass('screen-light');
@@ -62,6 +73,16 @@ function func(event) {
         $('.info').removeClass('cases-light');
         $('.info').addClass('cases-dark');
 
-        
+        // be prepared but dont panic text
+        document.getElementById("panicp").style.color = "white";
+        document.getElementById("panicp").style.backgroundColor = "rgb(30,30,150)";
+
+        // accordian
+        document.getElementsByClassName("accordion")[0].style.backgroundColor = "rgb(73, 42, 250)";
+        document.getElementsByClassName("accordion")[0].style.color = "white";
+
+        // panel
+        document.getElementsByClassName("panel")[0].style.backgroundColor = "rgb(53,22,200)";
+        document.getElementsByClassName("panel")[0].style.color = "white";
     }
 }

@@ -89,7 +89,7 @@ console.log(Object(indiaSeries.data));
     indiaSeries.heatRules.push({
       property: "fill",
       target: indiaSeries.mapPolygons.template,
-      min: am4core.color("rgb(250,254,201)"),
+      min: am4core.color("rgb(240,244,191)"),
       max: am4core.color("rgb(184,199,5)")
     });
     

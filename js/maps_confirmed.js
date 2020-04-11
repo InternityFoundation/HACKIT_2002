@@ -36,6 +36,7 @@ polygonTemplate.tooltipText = "{name}";
 
         //console.log(ev.target.dataItem.dataContext.name);
         console.log(ev.target.dataItem.dataContext);
+        console.log(ev.target.dataItem.dataContext.id);
     });
 ///////////////////////////////////////
 //// SHOW INDIAN STATES END
@@ -72,14 +73,6 @@ polygonTemplate.tooltipText = "{name}";
 //// LAT LONG
 ///////////////////////////////////////
 
-
-
-// Add expectancy data
-/*indiaSeries.data = [
-    { id: "ZM", value: [57.037,45,76] }
-];*/
-
-//console.log(Object(indiaSeries.data)[0].value);
 console.log(Object(indiaSeries.data));
 
 
