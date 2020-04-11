@@ -1,0 +1,182 @@
+/* digital screening css */
+.screen-section {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    text-align: center;
+    color: #000;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen-light {
+    background: linear-gradient(-45deg, #ff7f57, #ff418a, #2bc6ff, #2dffce);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    display: flex;
+    flex-direction: column;
+}
+
+.screen-dark {
+    background: linear-gradient(-45deg, rgb(196,58,19), rgb(165,20,74), rgb(20,95,122), rgb(20,122,99));
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;   
+    display: flex;
+    flex-direction: column;
+}
+
+.screen-container {
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    width: 90%;
+}
+
+/* Covid 19 India */
+.screen-container > h1 {
+    font-size: 70px;
+    text-shadow: 4px 4px 10px rgb(0, 4, 44);
+}
+
+@media only screen and (max-width: 400px) {
+    .screen-container > h1 {
+        font-size: 50px;
+    }
+}
+
+/* Cases css begin */
+.screen-container > .cases {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow: overlay;
+}
+
+.cases > .info {
+    float: left;
+    width: 21%;
+    margin: 1% 2%;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .cases > .info {
+        float: left;
+        width: 40%;
+        margin: 1% 5%;
+        padding: 5px;
+    }
+}
+
+.cases > .cases-light {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+@media only screen and (max-width: 400px) {
+    .info > p {
+        margin: 0 5px;
+    }
+    .info > p:nth-child(1) {
+        font-size: 15px;
+    }
+}
+
+.info > p:nth-child(2) {
+    font-size: 30px;
+}
+
+.cases > .cases-dark {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.info.confirmed.cases-light {
+    background-color: #fac4cf;
+    color: #ff073a;
+}
+
+.info.active.cases-light {
+    background-color: #bddbfc;
+    color: #007bff;
+}
+
+.info.recovered.cases-light {
+    background-color: #b8ffc9;
+    color: #28a745;
+}
+
+.info.deceased.cases-light {
+    background-color: #d6dde4;
+    color: #6c757d;
+}
+
+
+.info.confirmed.cases-dark {
+    background-color: #262529;
+    color: #ff073a;
+}
+
+.info.active.cases-dark {
+    background-color: #262529;
+    color: #007bff;
+}
+
+.info.recovered.cases-dark {
+    background-color: #262529;
+    color: #00ff3c;
+}
+
+.info.deceased.cases-dark {
+    background-color: #262529;
+    color: #fffb00;
+}
+
+
+/* Cases css end */
+
+
+
+.screen-container > .button {
+    margin-top: 40px;
+    color: black;
+    padding: 2px 0px;
+}
+
+.screen-container > .button > a {
+    background-color: black;
+    color: white;
+    padding: 7px 10px;
+    text-decoration: none;
+    font-size: 200%;
+    text-align: center;
+    box-shadow: 0px 0px 5px 2px white;
+    border-radius: 10px;
+}
+
+.screen-container > .button > a:hover {
+    transition: 0.2s;
+    padding: 7px 12px;
+}
+
+.screen-container > .button > a:active {
+    transition: 0s;
+    padding: 4px 8px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

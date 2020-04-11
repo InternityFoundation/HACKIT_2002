@@ -1,0 +1,13 @@
+{
+    "light" : {
+        "navbar" : "Steve",
+        "age" :  "29",
+        "gender" : "male" 
+    },
+  
+    "sop" : {
+        "name" : "Sophie",
+        "age" : "27",
+        "gender" : "female"
+    }
+}
