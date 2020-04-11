@@ -38,11 +38,41 @@ function load_data() {
         row.id = "state"+i; // set row id for each row
         // Insert new cells (<td> elements) at the last position of the "new" <tr> element:
         var cell1 = row.insertCell(0);
-        //cell1.id = "state"+i;
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
         var cell5 = row.insertCell(4);
+
+        cell1.style.backgroundColor = "rgb(244, 240, 249)";
+        cell1.style.color = "#6c757d";
+        cell1.style.border = "2px solid white";
+        cell1.style.borderRadius = "10px";
+        cell1.style.fontWeight = "800";
+
+        cell2.style.backgroundColor = "rgb(244, 240, 249)";
+        cell2.style.color = "#6c757d";
+        cell2.style.border = "2px solid white";
+        cell2.style.borderRadius = "10px";
+        cell2.style.fontWeight = "600";
+
+        cell3.style.backgroundColor = "rgb(244, 240, 249)";
+        cell3.style.color = "#6c757d";
+        cell3.style.border = "2px solid white";
+        cell3.style.borderRadius = "10px";
+        cell3.style.fontWeight = "600";
+
+        cell4.style.backgroundColor = "rgb(244, 240, 249)";
+        cell4.style.color = "#6c757d";
+        cell4.style.border = "2px solid white";
+        cell4.style.borderRadius = "10px";
+        cell4.style.fontWeight = "600";
+
+        cell5.style.backgroundColor = "rgb(244, 240, 249)";
+        cell5.style.color = "#6c757d";
+        cell5.style.border = "2px solid white";
+        cell5.style.borderRadius = "10px";
+        cell5.style.fontWeight = "600";
+        
 
         // Add district info to the new cells:
         cell1.innerHTML = state_name[i];
@@ -69,6 +99,20 @@ function load_data() {
                     var row = districttable.insertRow(-1);
                     var cell1 = row.insertCell(0);
                     var cell2 = row.insertCell(1);
+
+                    cell1.style.backgroundColor = "rgb(238, 238, 247)";
+                    cell1.style.color = "#6e757d";
+                    cell1.style.border = "2px solid white";
+                    cell1.style.borderRadius = "10px";
+                    cell1.style.fontWeight = "700";
+
+                    cell2.style.backgroundColor = "rgb(238, 238, 247)";
+                    cell2.style.color = "#6e757d";
+                    cell2.style.border = "2px solid white";
+                    cell2.style.borderRadius = "10px";
+                    cell2.style.fontWeight = "500";
+
+
                     cell1.innerHTML = dist[i];
                     cell2.innerHTML = state_this[dist[i]].confirmed;
                 });
