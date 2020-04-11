@@ -1,5 +1,3 @@
-var colorMode = 1; // 1 for light 0 for dark
-
 function func(event) {
     if(event.target.checked) {
         // light
