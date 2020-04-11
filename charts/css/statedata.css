@@ -11,6 +11,9 @@ html , body {
     margin-left: 5px;
 }
 
+#statetable {
+    cursor: pointer;
+}
 
 /* Table Headings begin */
 #statetable > thead > tr > th {
