@@ -47,7 +47,7 @@ function bodyload() {
     const myParam = urlParams.get('lang');
     console.log(myParam);
     if(myParam == 'odia') {
-        language="odia";
+        
         var predict1 = document.getElementsByClassName("predict1");
         var predict2 = document.getElementsByClassName("predict2");
         var predict3 = document.getElementsByClassName("predict3");
@@ -56,31 +56,7 @@ function bodyload() {
         var predict6 = document.getElementsByClassName("predict6");
         var predict7 = document.getElementsByClassName("predict7");
 
-        for(var i=0;i<predict1.length;i++) {
-            predict1[i].innerHTML += predictionTextOdia[0][i]+"<br />";
-        }
-        for(var i=0;i<predict2.length;i++) {
-            predict2[i].innerHTML += predictionTextOdia[1][i]+"<br />";
-        }
-        for(var i=0;i<predict3.length;i++) {
-            predict3[i].innerHTML += predictionTextOdia[2][i]+"<br />";
-        }
-        for(var i=0;i<predict4.length;i++) {
-            predict4[i].innerHTML += predictionTextOdia[3][i]+"<br />";
-        }
-        for(var i=0;i<predict5.length;i++) {
-            predict5[i].innerHTML += predictionTextOdia[4][i]+"<br />";
-        }
-        for(var i=0;i<predict6.length;i++) {
-            predict6[i].innerHTML += predictionTextOdia[5][i]+"<br />";
-        }
-        for(var i=0;i<predict7.length;i++) {
-            predict7[i].innerHTML += predictionTextOdia[6][i]+"<br />";
-        }
-        var question_p = document.getElementsByClassName("question");
-        for(var i=0;i<question_p.length;i++) {
-            question_p[i].innerHTML += questionOdia[i]+"<br />";
-        }
+        
     }
     var predict1 = document.getElementsByClassName("predict1");
     var predict2 = document.getElementsByClassName("predict2");
@@ -127,19 +103,11 @@ async function loads(n) {
     
     if(n==0) {
         if (window.speechSynthesis) {} else{}
-        if(language == 'eng') {
-            speechSynthesis.cancel();
-            speak(question[0]);
-            speak(question[1]);
-            for(var i=0;i<predictionText[0].length;i++) {
-                speak(predictionText[0][i]);
-            }
-        }
-        else if(language == 'odia') {
-            audio1.play();
-            audio1.onended = function() {
-                audio2.play();
-            }
+        speechSynthesis.cancel();
+        speak(question[0]);
+        speak(question[1]);
+        for(var i=0;i<predictionText[0].length;i++) {
+            speak(predictionText[0][i]);
         }
         loads(1);
     }
@@ -159,17 +127,10 @@ $(document).ready(function () {
         client[0].style.display = "block";
         await sleep(200);
         predict[0].style.display = "none";
-        if(language == "eng") {
-            speechSynthesis.cancel();
-            speak(question[2]);
-            for(var i=0;i<predictionText[1].length;i++) {
-                speak(predictionText[1][i]);
-            }
-        }
-        else if(language == "odia") {
-            audio1.pause();
-            audio2.pause();
-            audio3.play();
+        speechSynthesis.cancel();
+        speak(question[2]);
+        for(var i=0;i<predictionText[1].length;i++) {
+            speak(predictionText[1][i]);
         }
         loads(2);
     });

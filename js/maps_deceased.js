@@ -41,49 +41,6 @@ polygonTemplate.tooltipText = "{name}";
 //// SHOW INDIAN STATES END
 ///////////////////////////////////////
 
-
-///////////////////////////////////////
-//// LAT LONG
-///////////////////////////////////////
-    // Create image series
-    var imageSeries = chart.series.push(new am4maps.MapImageSeries());
-
-    // Create a circle image in image series template so it gets replicated to all new images
-    var imageSeriesTemplate = imageSeries.mapImages.template;
-    var circle = imageSeriesTemplate.createChild(am4core.Circle);
-    circle.radius = 4;
-    circle.fill = am4core.color("#B27799");
-    circle.stroke = am4core.color("#FFFFFF");
-    circle.strokeWidth = 2;
-    circle.nonScaling = true;
-    circle.tooltipText = "{title}";
-
-    // Set property fields
-    imageSeriesTemplate.propertyFields.latitude = "latitude";
-    imageSeriesTemplate.propertyFields.longitude = "longitude";
-
-    // Add data for the three cities
-    imageSeries.data = [{
-    "latitude": 23.5204,
-    "longitude": 87.3119,
-    "title": "DGP"
-    }];
-///////////////////////////////////////
-//// LAT LONG
-///////////////////////////////////////
-
-
-
-// Add expectancy data
-/*indiaSeries.data = [
-    { id: "ZM", value: [57.037,45,76] }
-];*/
-
-//console.log(Object(indiaSeries.data)[0].value);
-console.log(Object(indiaSeries.data));
-
-
-
     polygonTemplate.tooltipText = "{name}: {value.value.formatNumber('#.0')}";
     
     indiaSeries.heatRules.push({
@@ -141,7 +98,4 @@ console.log(Object(indiaSeries.data));
         }
         indiaSeries.data.push(fg);
       }
-    
-    
-    console.log(indiaSeries.data);
 }

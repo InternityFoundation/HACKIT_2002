@@ -1,15 +1,17 @@
+var chart1;
+var user_lat=0, user_long=0;
 function loadchart1() {
 // Create map instance
-var chart = am4core.create("chartdiv1", am4maps.MapChart);
+chart1 = am4core.create("chartdiv1", am4maps.MapChart);
 
 // Set map definition
-chart.geodata = am4geodata_worldLow;
+chart1.geodata = am4geodata_worldLow;
 
 // Set projection
-chart.projection = new am4maps.projections.Miller();
+chart1.projection = new am4maps.projections.Miller();
 
 // Series for World map
-var worldSeries = chart.series.push(new am4maps.MapPolygonSeries());
+var worldSeries = chart1.series.push(new am4maps.MapPolygonSeries());
 worldSeries.include = ["IN"];
 worldSeries.indiaGeodata = true;
 var polygonTemplate = worldSeries.mapPolygons.template;
@@ -19,7 +21,7 @@ polygonTemplate.tooltipText = "{name}";
 //// SHOW INDIAN STATES
 ///////////////////////////////////////
     // Series for India map
-    var indiaSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    var indiaSeries = chart1.series.push(new am4maps.MapPolygonSeries());
     indiaSeries.geodata = am4geodata_indiaLow;
     var polygonTemplate = indiaSeries.mapPolygons.template;
     
@@ -46,29 +48,14 @@ polygonTemplate.tooltipText = "{name}";
 ///////////////////////////////////////
 //// LAT LONG
 ///////////////////////////////////////
-    // Create image series
-    var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+    
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(showPosition);
+} 
+else { 
+  console.log("Geolocation is not supported by this browser.");
+}
 
-    // Create a circle image in image series template so it gets replicated to all new images
-    var imageSeriesTemplate = imageSeries.mapImages.template;
-    var circle = imageSeriesTemplate.createChild(am4core.Circle);
-    circle.radius = 4;
-    circle.fill = am4core.color("#B27799");
-    circle.stroke = am4core.color("#FFFFFF");
-    circle.strokeWidth = 2;
-    circle.nonScaling = true;
-    circle.tooltipText = "{title}";
-
-    // Set property fields
-    imageSeriesTemplate.propertyFields.latitude = "latitude";
-    imageSeriesTemplate.propertyFields.longitude = "longitude";
-
-    // Add data for the three cities
-    imageSeries.data = [{
-    "latitude": 23.5204,
-    "longitude": 87.3119,
-    "title": "DGP"
-    }];
 ///////////////////////////////////////
 //// LAT LONG
 ///////////////////////////////////////
@@ -89,7 +76,7 @@ console.log(Object(indiaSeries.data));
     indiaSeries.useGeodata = true;
 
     // add heat legend
-    var heatLegend = chart.chartContainer.createChild(am4maps.HeatLegend);
+    var heatLegend = chart1.chartContainer.createChild(am4maps.HeatLegend);
     heatLegend.valign = "bottom";
     heatLegend.align = "left";
     heatLegend.width = am4core.percent(100);
@@ -121,8 +108,8 @@ console.log(Object(indiaSeries.data));
         heatLegend.valueAxis.hideTooltip();
     });
 
-    chart.zoomControl = new am4maps.ZoomControl();
-    chart.zoomControl.valign = "top";
+    chart1.zoomControl = new am4maps.ZoomControl();
+    chart1.zoomControl.valign = "top";
 
     //indiaSeries push data 
       indiaSeries.data = [];
@@ -133,6 +120,36 @@ console.log(Object(indiaSeries.data));
         }
         indiaSeries.data.push(fg);
       }
-    
-    console.log(indiaSeries.data);
+}
+
+function showPosition(position) {
+  user_lat=position.coords.latitude;
+  user_long=position.coords.longitude;
+
+  // Create image series
+  var imageSeries = chart1.series.push(new am4maps.MapImageSeries());
+
+  // Create a circle image in image series template so it gets replicated to all new images
+  var imageSeriesTemplate = imageSeries.mapImages.template;
+  var circle = imageSeriesTemplate.createChild(am4core.Circle);
+  circle.radius = 5;
+  circle.fill = am4core.color("#B27799");
+  circle.stroke = am4core.color("#FFFFFF");
+  circle.strokeWidth = 1;
+  circle.nonScaling = true;
+  circle.tooltipText = "{title}";
+
+  // Set property fields
+  imageSeriesTemplate.propertyFields.latitude = "latitude";
+  imageSeriesTemplate.propertyFields.longitude = "longitude";
+
+  
+  
+  // Add data for the user city
+  
+  imageSeries.data = [{
+    "latitude": user_lat,
+    "longitude": user_long,
+    "title": "Your Location \nLat: "+user_lat+"\nLong: "+user_long
+  }];
 }

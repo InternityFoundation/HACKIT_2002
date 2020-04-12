@@ -11,42 +11,20 @@ async function modalopen() {
     modal.style.display = "block";
     var risk = document.getElementById("risk");
     if(count<20) {
-        if(language=="odia") {
-            riskAudio = new Audio("./odia_audio/Low.aac");
-            riskAudio.play();
-            risk.innerHTML = "LOW"+"<br />"+"ବିପଦ କମ୍ ଅଟେ |";
-        }
-        else if(language=="eng") {
-            speak("Risk is low. Still you must stay at home and stay safe");
-            risk.innerHTML = "LOW";
-        }
+        speak("Risk is low. Still you must stay at home and stay safe");
+        risk.innerHTML = "LOW";
         risk.style.color = "GREEN";
         risk.style.fontSize = "40px";
     }
     else if(count<40) {
-        if(language=="odia") {
-            riskAudio = new Audio("./odia_audio/Average.aac");
-            riskAudio.play();
-            risk.innerHTML = "AVERAGE"+"<br />"+"ବିପଦ ହାରାହାରି |";
-        }
-        else if(language=="eng") {
-            speak("Risk is average. You should consult a physician.");
-            risk.innerHTML = "AVERAGE";
-        }
-        
+        speak("Risk is average. You should consult a physician.");
+        risk.innerHTML = "AVERAGE";
         risk.style.color = "rgb(254,218,9)";
         risk.style.fontSize = "40px";
     }
     else {
-        if(language=="odia") {
-            riskAudio = new Audio("./odia_audio/High.aac");
-            riskAudio.play();
-            risk.innerHTML = "HIGH"+"<br />"+"ବିପଦ ଉଚ୍ଚ ଅଟେ |";
-        }
-        else if(language=="eng") {
-            speak("Risk is high. Immediately consult a physician or reach us at Amour Labs.");
-            risk.innerHTML = "HIGH";
-        }
+        speak("Risk is high. Immediately consult a physician or reach us at Amour Labs.");
+        risk.innerHTML = "HIGH";
         risk.style.color = "RED";
         risk.style.fontSize = "40px";
     }
