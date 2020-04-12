@@ -10,13 +10,13 @@ var riskAudio;
 async function modalopen() {
     modal.style.display = "block";
     var risk = document.getElementById("risk");
-    if(count<20) {
+    if(count<15) {
         speak("Risk is low. Still you must stay at home and stay safe");
         risk.innerHTML = "LOW";
         risk.style.color = "GREEN";
         risk.style.fontSize = "40px";
     }
-    else if(count<40) {
+    else if(count<25) {
         speak("Risk is average. You should consult a physician.");
         risk.innerHTML = "AVERAGE";
         risk.style.color = "rgb(254,218,9)";

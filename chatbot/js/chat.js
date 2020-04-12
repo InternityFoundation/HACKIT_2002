@@ -47,7 +47,6 @@ function bodyload() {
     const myParam = urlParams.get('lang');
     console.log(myParam);
     if(myParam == 'odia') {
-        
         var predict1 = document.getElementsByClassName("predict1");
         var predict2 = document.getElementsByClassName("predict2");
         var predict3 = document.getElementsByClassName("predict3");
@@ -55,8 +54,6 @@ function bodyload() {
         var predict5 = document.getElementsByClassName("predict5");
         var predict6 = document.getElementsByClassName("predict6");
         var predict7 = document.getElementsByClassName("predict7");
-
-        
     }
     var predict1 = document.getElementsByClassName("predict1");
     var predict2 = document.getElementsByClassName("predict2");
@@ -121,7 +118,7 @@ $(document).ready(function () {
     $(".predict1").click(async function() {
         var index = $(".predict1").index(this);
         document.getElementById("client1").innerHTML = document.getElementsByClassName("predict1")[index].innerHTML;
-        var ar = [1,2,3,5];
+        var ar = [4,2,3,5];
         count = count + ar[index];
         console.log(count);
         client[0].style.display = "block";
@@ -138,7 +135,7 @@ $(document).ready(function () {
     $(".predict2").click(async function() {
         var index = $(".predict2").index(this);
         document.getElementById("client2").innerHTML = document.getElementsByClassName("predict2")[index].innerHTML;
-        var ar = [1,1,1];
+        var ar = [1,2,1];
         count = count + ar[index];
         console.log(count);
         client[1].style.display = "block";
@@ -162,7 +159,7 @@ $(document).ready(function () {
     $(".predict3").click(async function() {
         var index = $(".predict3").index(this);
         document.getElementById("client3").innerHTML = document.getElementsByClassName("predict3")[index].innerHTML;
-        var ar = [1,3,5];
+        var ar = [0,1,2];
         count = count + ar[index];
         console.log(count);
         client[2].style.display = "block";
@@ -191,7 +188,7 @@ $(document).ready(function () {
         if(symptom1_clicked[index] == -1) {
             symptom1 = symptom1 + document.getElementsByClassName("predict4")[index].innerHTML+", ";
             document.getElementsByClassName("predict4")[index].style.backgroundColor = "white";
-            var ar = [5,4,4,3,2,0];
+            var ar = [0,5,3,4,6,0];
             count_symptom1 = count_symptom1 + ar[index];
             console.log("count_symptom1 "+count_symptom1);
             symptom1_clicked[index] *= -1;
@@ -199,7 +196,7 @@ $(document).ready(function () {
         else {
             symptom1 = symptom1.replace(document.getElementsByClassName("predict4")[index].innerHTML+',','');
             document.getElementsByClassName("predict4")[index].style.backgroundColor = "rgb(254,218,9)";
-            var ar = [5,4,4,3,2,0];
+            var ar = [0,5,3,4,6,0];
             count_symptom1 = count_symptom1 - ar[index];
             console.log("count_symptom1 "+count_symptom1);
             symptom1_clicked[index] *= -1;
@@ -238,7 +235,7 @@ $(document).ready(function () {
         if(symptom2_clicked[index] == -1) {
             symptom2 = symptom2 + document.getElementsByClassName("predict5")[index].innerHTML+", ";
             document.getElementsByClassName("predict5")[index].style.backgroundColor = "white";
-            var ar = [5,4,4,2,3,3,0];
+            var ar = [0,1,3,4,5,6,0];
             count_symptom2 = count_symptom2 + ar[index];
             console.log("count_symptom2 "+count_symptom2);
             symptom2_clicked[index] *= -1;
@@ -246,7 +243,7 @@ $(document).ready(function () {
         else {
             symptom2 = symptom2.replace(document.getElementsByClassName("predict5")[index].innerHTML+',','');
             document.getElementsByClassName("predict5")[index].style.backgroundColor = "rgb(254,218,9)";
-            var ar = [5,4,4,2,3,3,0];
+            var ar = [0,1,3,4,5,6,0];
             count_symptom2 = count_symptom2 - ar[index];
             console.log("count_symptom2 "+count_symptom2);
             symptom2_clicked[index] *= -1;
@@ -280,7 +277,7 @@ $(document).ready(function () {
     $(".predict6").click(async function() {
         var index = $(".predict6").index(this);
         document.getElementById("client6").innerHTML = document.getElementsByClassName("predict6")[index].innerHTML;
-        var ar = [1,2,3,10];
+        var ar = [0,1,2,3];
         count = count + ar[index];
         console.log(count);
         client[5].style.display = "block";
@@ -311,7 +308,7 @@ $(document).ready(function () {
         if(history_clicked[index] == -1) {
             history = history + document.getElementsByClassName("predict7")[index].innerHTML+", ";
             document.getElementsByClassName("predict7")[index].style.backgroundColor = "white";
-            var ar = [2,2,3,2,3,4,4,0];
+            var ar = [0,1,2,3,4,6,7,0];
             count_history = count_history + ar[index];
             console.log("count_history "+count_history);
             history_clicked[index] *= -1;
@@ -319,7 +316,7 @@ $(document).ready(function () {
         else {
             history = history.replace(document.getElementsByClassName("predict7")[index].innerHTML+',','');
             document.getElementsByClassName("predict7")[index].style.backgroundColor = "rgb(254,218,9)";
-            var ar = [2,2,3,2,3,4,4,0];
+            var ar = [0,1,2,3,4,6,7,0];
             count_history = count_history - ar[index];
             console.log("count_history "+count_history);
             history_clicked[index] *= -1;
